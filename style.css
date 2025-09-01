@@ -1,0 +1,89 @@
+:root{
+  --bg:#ffffff;
+  --panel:#f6f8fa;
+  --text:#102a43;
+  --muted:#5a6b7a;
+  --accent:#1f8a70; /* green accent */
+  --accent-2:#c59d5f; /* gold alternative */
+  --radius:12px;
+  --maxw:1200px;
+  --shadow: 0 6px 18px rgba(16,42,67,0.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+.container{width:min(var(--maxw),94%);margin:0 auto}
+
+/* NAV */
+.nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);border-bottom:1px solid #e6edf2;z-index:1000}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-weight:700;color:var(--text);letter-spacing:.2px}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--text);font-weight:600;padding:8px;border-radius:8px}
+.nav-links a:hover{background:#eef6f4;color:var(--accent)}
+.menuu{display:none;border:0;background:transparent;cursor:pointer;padding:8px}
+.menuu span{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+
+/* HERO / LANDING */
+.hero{display:grid;place-items:center;min-height:62vh;background:
+linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+url('../img/hero-real.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:36px 0}
+.hero .inner{max-width:980px}
+.hero h1{font-size:clamp(1.8rem,4.5vw,2.8rem);margin:0 0 10px;line-height:1.05}
+.hero p{color:rgba(255,255,255,0.9);margin:0 0 18px;font-size:1.05rem}
+.hero .cta{display:inline-flex;gap:10px}
+
+/* SECTIONS */
+.section{padding:64px 0}
+.section h2{font-size:1.6rem;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 18px}
+
+/* CARDS / GRID */
+.grid{display:grid;gap:18px}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--panel);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);border:1px solid #eef3f6}
+.listing-img{width:100%;height:180px;object-fit:cover;border-radius:10px}
+.listing-meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.price{font-weight:700;color:var(--accent)}
+.badge{background:var(--accent);color:#fff;padding:6px 10px;border-radius:8px;font-size:.85rem}
+
+/* AGENTS */
+.agent{display:flex;gap:12px;align-items:center}
+.agent img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+
+/* TESTIMONIALS */
+.testimonial{background:#fff;border-left:4px solid var(--accent);padding:16px;border-radius:10px;box-shadow:var(--shadow)}
+
+/* GALLERY */
+.gallery-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.gallery-grid a{display:block;position:relative;border-radius:10px;overflow:hidden}
+.gallery-grid img{width:100%;height:160px;object-fit:cover;display:block}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filter-btn{padding:8px 12px;border-radius:8px;border:1px solid #e6edf2;background:#fff;cursor:pointer}
+.filter-btn.active{background:var(--accent);color:#fff;border-color:transparent}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.8);z-index:2000;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(92vw,1000px);max-height:88vh;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+
+/* CONTACT FORM */
+.form{display:grid;gap:12px}
+.input,textarea{padding:12px;border-radius:10px;border:1px solid #e6edf2;background:#fff;color:var(--text)}
+.input:focus,textarea:focus{outline:2px solid rgba(31,138,112,0.12);border-color:var(--accent)}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.form .row{grid-template-columns:1fr}}
+
+/* FOOTER */
+.footer{background:#081621;color:#d9e6ef;padding:28px 0;margin-top:36px;border-top:1px solid #0f2430}
+.footer .top{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.social a{margin-right:10px;color:#d9e6ef}
+.small{font-size:.92rem;color:#b6c6d1}
+
+/* RESPONSIVE NAV */
+@media (max-width:880px){
+  .nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:var(--bg);padding:14px;border-radius:10px;flex-direction:column;box-shadow:var(--shadow)}
+  .nav-links.open{display:flex}
+  .burger{display:inline-flex}
+  .hero{padding:36px 16px}
+}
